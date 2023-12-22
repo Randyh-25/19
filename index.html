@@ -22,12 +22,15 @@
     }
 
     .letter {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: justify;
-    }
+    width: 700px; /* Lebar tetap */
+    height: 500px; /* Tinggi tetap */
+    overflow-y: auto; /* Tambahkan scroll jika konten lebih panjang */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+  }
 
     /* Animasi */
     .letter p {
@@ -49,7 +52,7 @@
     .btn {
       display: none;
       padding: 10px 20px;
-      background-color: #ffcc00;
+      background-color: #2432ac;
       border: none;
       border-radius: 5px;
       color: #fff;
@@ -107,4 +110,3 @@
   </script>
 </body>
 </html>
-
