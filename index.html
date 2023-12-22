@@ -67,13 +67,14 @@
         opacity: 1;
       }
     }
+
     #cornerGif {
-        position: fixed;
-        top: 60px; /* Sesuaikan dengan jarak dari atas */
-        right: 450px; /* Sesuaikan dengan jarak dari kanan */
-        z-index: 1000; /* Pastikan z-index lebih tinggi agar muncul di atas konten */
-        width: 100px;
-        height: 100px;
+      position: fixed;
+      top: 60px; /* Sesuaikan dengan jarak dari atas */
+      right: 450px; /* Sesuaikan dengan jarak dari kanan */
+      z-index: 1000; /* Pastikan z-index lebih tinggi agar muncul di atas konten */
+      width: 100px;
+      height: 100px;
     }
   </style>
 </head>
@@ -86,38 +87,41 @@
   <img src="https://raw.githubusercontent.com/Randyh-25/19/main/Picture/cat.gif" alt="GIF" id="cornerGif">
 
   <script>
-    const text = "Kepada kekasih yang paling istimewa. Selamat ulang tahun ayang❤️! Hari ini adalah hari yang begitu istimewa karena bertepatan dengan hari kelahiranmu yang luar biasa. Ketika aku merenung tentang betapa beruntungnya aku memiliki seseorang seperti kamu dalam hidupku, tak ada kata-kata yang dapat benar-benar menggambarkan betapa berharga dan istimewanya dirimu bagiku. Setiap detik yang kita habiskan bersama adalah seperti petir yang menerangi langit, penuh dengan cahaya dan kehangatan yang tak tergantikan. Ketenangan yang aku rasakan saat berada di dekatmu, keceriaan yang selalu kamu bawa, dan kebaikan hatimu yang tak terbatas telah membuat hidupku jauh lebih berarti. Melalui surat ini, aku ingin mengungkapkan rasa terima kasihku yang mendalam atas segala hal yang telah kamu berikan padaku: cinta tanpa syarat, dukungan yang tak tergoyahkan, dan kehadiranmu yang selalu menjadi tempat perlindunganku. Aku bersyukur atas setiap momen yang telah kita bagi bersama, serta setiap tawa dan air mata yang kita lalui bersama-sama. Hari ini, ketika kita merayakan tahun baru dalam hidupmu, aku berjanji untuk selalu ada di sampingmu, mendukungmu dalam setiap impian yang ingin kamu raih, dan mencintaimu lebih dari yang bisa aku ungkapkan dengan kata-kata. Selamat ulang tahun, cintaku. Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan, kejutan menyenangkan, dan impian yang terwujud. Aku tak sabar untuk merayakan banyak lagi ulang tahun bersamamu. Dengan cinta yang tak terbatas, your future. I LOVE YOU❤️, always";
-    const textContainer = document.getElementById("letter");
-    const nextButton = document.getElementById("nextBtn");
+    document.addEventListener("DOMContentLoaded", function() {
+      const text = "Kepada kekasih yang paling istimewa. Selamat ulang tahun ayang❤️! Hari ini adalah hari yang begitu istimewa karena bertepatan dengan hari kelahiranmu yang luar biasa. Ketika aku merenung tentang betapa beruntungnya aku memiliki seseorang seperti kamu dalam hidupku, tak ada kata-kata yang dapat benar-benar menggambarkan betapa berharga dan istimewanya dirimu bagiku. Setiap detik yang kita habiskan bersama adalah seperti petir yang menerangi langit, penuh dengan cahaya dan kehangatan yang tak tergantikan. Ketenangan yang aku rasakan saat berada di dekatmu, keceriaan yang selalu kamu bawa, dan kebaikan hatimu yang tak terbatas telah membuat hidupku jauh lebih berarti. Melalui surat ini, aku ingin mengungkapkan rasa terima kasihku yang mendalam atas segala hal yang telah kamu berikan padaku: cinta tanpa syarat, dukungan yang tak tergoyahkan, dan kehadiranmu yang selalu menjadi tempat perlindunganku. Aku bersyukur atas setiap momen yang telah kita bagi bersama, serta setiap tawa dan air mata yang kita lalui bersama-sama. Hari ini, ketika kita merayakan tahun baru dalam hidupmu, aku berjanji untuk selalu ada di sampingmu, mendukungmu dalam setiap impian yang ingin kamu raih, dan mencintaimu lebih dari yang bisa aku ungkapkan dengan kata-kata. Selamat ulang tahun, cintaku. Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan, kejutan menyenangkan, dan impian yang terwujud. Aku tak sabar untuk merayakan banyak lagi ulang tahun bersamamu. Dengan cinta yang tak terbatas, your future. I LOVE YOU❤️, always";
 
-    function animateText() {
-      const paragraphs = text.split(". ");
-      paragraphs.forEach((paragraph, index) => {
-        const delay = index * 2500;
-        setTimeout(() => {
-          const p = document.createElement("p");
-          p.textContent = paragraph + ".";
-          textContainer.appendChild(p);
+      const textContainer = document.getElementById("letter");
+      const nextButton = document.getElementById("nextBtn");
 
-          textContainer.scrollTop = textContainer.scrollHeight;
+      function animateText() {
+        const paragraphs = text.split(". ");
+        paragraphs.forEach((paragraph, index) => {
+          const delay = index * 2500;
+          setTimeout(() => {
+            const p = document.createElement("p");
+            p.textContent = paragraph + ".";
+            textContainer.appendChild(p);
 
-          if (index === paragraphs.length - 1) {
-            nextButton.classList.add("show");
-          }
-        }, delay);
+            textContainer.scrollTop = textContainer.scrollHeight;
+
+            if (index === paragraphs.length - 1) {
+              nextButton.classList.add("show");
+            }
+          }, delay);
+        });
+      }
+
+      animateText();
+
+      nextButton.addEventListener("click", () => {
+        console.log("Menuju halaman selanjutnya...");
       });
-    }
 
-    window.onload = animateText;
-
-    nextButton.addEventListener("click", () => {
-      console.log("Menuju halaman selanjutnya...");
+      setTimeout(() => {
+        nextButton.style.display = "inline-block";
+        nextButton.style.opacity = "1";
+      }, text.split(". ").length * 2500);
     });
-
-    setTimeout(() => {
-      nextButton.style.display = "inline-block";
-      nextButton.style.opacity = "1";
-    }, text.split(". ").length * 2500);
   </script>
 </body>
 </html>
