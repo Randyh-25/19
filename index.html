@@ -19,34 +19,25 @@
 
     .container {
       text-align: center;
+      margin-bottom: 20px;
     }
 
     .letter {
-    width: 700px; /* Lebar tetap */
-    height: 500px; /* Tinggi tetap */
-    overflow-y: auto; /* Tambahkan scroll jika konten lebih panjang */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: justify;
-  }
+      width: 700px;
+      height: 500px;
+      overflow-y: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: justify;
+    }
 
-    /* Animasi */
     .letter p {
       opacity: 0;
       animation: fadeIn 0.5s linear forwards;
       font-size: 16px;
       margin-bottom: 20px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
     }
 
     .btn {
@@ -66,6 +57,15 @@
       display: inline-block;
       opacity: 1;
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -76,7 +76,7 @@
   </div>
 
   <script>
-    const text = "Kepada kekasih yang paling istimewa. Selamat ulang tahun ayang! Hari ini adalah hari yang begitu istimewa karena bertepatan dengan hari kelahiranmu yang luar biasa. Ketika aku merenung tentang betapa beruntungnya aku memiliki seseorang seperti kamu dalam hidupku, tak ada kata-kata yang dapat benar-benar menggambarkan betapa berharga dan istimewanya dirimu bagiku. Setiap detik yang kita habiskan bersama adalah seperti petir yang menerangi langit, penuh dengan cahaya dan kehangatan yang tak tergantikan. Ketenangan yang aku rasakan saat berada di dekatmu, keceriaan yang selalu kamu bawa, dan kebaikan hatimu yang tak terbatas telah membuat hidupku jauh lebih berarti. Melalui surat ini, aku ingin mengungkapkan rasa terima kasihku yang mendalam atas segala hal yang telah kamu berikan padaku: cinta tanpa syarat, dukungan yang tak tergoyahkan, dan kehadiranmu yang selalu menjadi tempat perlindunganku. Aku bersyukur atas setiap momen yang telah kita bagi bersama, serta setiap tawa dan air mata yang kita lalui bersama-sama. Hari ini, ketika kita merayakan tahun baru dalam hidupmu, aku berjanji untuk selalu ada di sampingmu, mendukungmu dalam setiap impian yang ingin kamu raih, dan mencintaimu lebih dari yang bisa aku ungkapkan dengan kata-kata. Selamat ulang tahun, cintaku. Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan, kejutan menyenangkan, dan impian yang terwujud. Aku tak sabar untuk merayakan banyak lagi ulang tahun bersamamu. Dengan cinta yang tak terbatas, your future.";
+    const text = "Kepada kekasih yang paling istimewa. Selamat ulang tahun ayang❤️! Hari ini adalah hari yang begitu istimewa karena bertepatan dengan hari kelahiranmu yang luar biasa. Ketika aku merenung tentang betapa beruntungnya aku memiliki seseorang seperti kamu dalam hidupku, tak ada kata-kata yang dapat benar-benar menggambarkan betapa berharga dan istimewanya dirimu bagiku. Setiap detik yang kita habiskan bersama adalah seperti petir yang menerangi langit, penuh dengan cahaya dan kehangatan yang tak tergantikan. Ketenangan yang aku rasakan saat berada di dekatmu, keceriaan yang selalu kamu bawa, dan kebaikan hatimu yang tak terbatas telah membuat hidupku jauh lebih berarti. Melalui surat ini, aku ingin mengungkapkan rasa terima kasihku yang mendalam atas segala hal yang telah kamu berikan padaku: cinta tanpa syarat, dukungan yang tak tergoyahkan, dan kehadiranmu yang selalu menjadi tempat perlindunganku. Aku bersyukur atas setiap momen yang telah kita bagi bersama, serta setiap tawa dan air mata yang kita lalui bersama-sama. Hari ini, ketika kita merayakan tahun baru dalam hidupmu, aku berjanji untuk selalu ada di sampingmu, mendukungmu dalam setiap impian yang ingin kamu raih, dan mencintaimu lebih dari yang bisa aku ungkapkan dengan kata-kata. Selamat ulang tahun, cintaku. Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan, kejutan menyenangkan, dan impian yang terwujud. Aku tak sabar untuk merayakan banyak lagi ulang tahun bersamamu. Dengan cinta yang tak terbatas, your future. I LOVE YOU❤️, always";
     const textContainer = document.getElementById("letter");
     const nextButton = document.getElementById("nextBtn");
 
@@ -89,6 +89,8 @@
           p.textContent = paragraph + ".";
           textContainer.appendChild(p);
 
+          textContainer.scrollTop = textContainer.scrollHeight;
+
           if (index === paragraphs.length - 1) {
             nextButton.classList.add("show");
           }
@@ -100,7 +102,6 @@
 
     nextButton.addEventListener("click", () => {
       console.log("Menuju halaman selanjutnya...");
-      // window.location.href = "halaman-selanjutnya.html"; // Ganti URL ke halaman selanjutnya jika perlu
     });
 
     setTimeout(() => {
