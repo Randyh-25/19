@@ -8,7 +8,6 @@
   <title>Happy Birthday ayang!</title>
   <style>
     body {
-      font-family: 'Pixelify Sans', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -31,11 +30,6 @@
     }
 
     .container {
-      position: relative;
-      z-index: 1; /* Pastikan elemen ini muncul di atas sparkle */
-    }
-
-    .letter {
       width: 800px;
       height: 500px;
       overflow-y: auto;
@@ -43,28 +37,30 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: justify;
+      text-align: center;
       position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .sparkle {
-      position: absolute;
-      background-image: url('https://raw.githubusercontent.com/Randyh-25/19/main/Picture/sparkle.gif');
-      width: 100px; /* Sesuaikan ukuran sparkle */
-      height: 100px; /* Sesuaikan ukuran sparkle */
-      animation: sparkleAnimation 5s infinite;
-      opacity: 0;
+    .pin-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
-    @keyframes sparkleAnimation {
-      0% { opacity: 0; transform: translateY(0) rotate(0); }
-      50% { opacity: 1; }
-      100% { opacity: 0; transform: translateY(-100vh) rotate(360deg); }
+    .pin-input input {
+      width: 60px;
+      height: 40px;
+      font-size: 15px;
+      text-align: center;
+      font-family: 'Pixelify Sans', sans-serif;
     }
 
-    /* Tambahkan animasi untuk tombol 'Lanjut' */
-    .btn {
-      display: none;
+    .verify-btn {
       padding: 10px 20px;
       background-color: #2432ac;
       border: none;
@@ -72,14 +68,12 @@
       color: #fff;
       font-size: 16px;
       cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      margin-top: 20px; /* Tambahkan baris ini */
+      transition: background-color 0.3s ease;
+      font-family: 'Pixelify Sans', sans-serif;
     }
 
-    .show {
-      display: inline-block;
-      opacity: 1;
+    .verify-btn:hover {
+      background-color: #1a2572;
     }
 
     #cornerGif {
@@ -90,68 +84,47 @@
       width: 100px;
       height: 100px;
     }
+    p{
+        font-family: 'Pixelify Sans', sans-serif;
+        font-size: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="letter" id="letter">
-      <!-- Teks ulang tahun -->
-    </div>
-    <button class="btn" id="nextBtn">Lanjut</button>
+    <p>Ayok sebelum lanjut coba inget ga sama tanggal jadian kita?</p>
+    <form id="pinForm">
+      <div class="pin-input">
+        <input type="text" maxlength="2" placeholder="Tanggal" id="firstBox" required>
+        <input type="text" maxlength="2" placeholder="Bulan" id="secondBox" required>
+        <input type="text" maxlength="4" placeholder="Tahun" id="thirdBox" required>
+      </div>
+      <button type="submit" class="verify-btn" id="verifyBtn">Verifikasi</button>
+    </form>
   </div>
   <img src="https://raw.githubusercontent.com/Randyh-25/19/main/Picture/cat.gif" alt="GIF" id="cornerGif">
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const text = "Kepada kekasih yang paling istimewa. Selamat ulang tahun ayang❤️! Hari ini adalah hari yang begitu istimewa karena bertepatan dengan hari kelahiranmu yang luar biasa. Ketika aku merenung tentang betapa beruntungnya aku memiliki seseorang seperti kamu dalam hidupku, tak ada kata-kata yang dapat benar-benar menggambarkan betapa berharga dan istimewanya dirimu bagiku. Setiap detik yang kita habiskan bersama adalah seperti petir yang menerangi langit, penuh dengan cahaya dan kehangatan yang tak tergantikan. Ketenangan yang aku rasakan saat berada di dekatmu, keceriaan yang selalu kamu bawa, dan kebaikan hatimu yang tak terbatas telah membuat hidupku jauh lebih berarti. Melalui surat ini, aku ingin mengungkapkan rasa terima kasihku yang mendalam atas segala hal yang telah kamu berikan padaku: cinta tanpa syarat, dukungan yang tak tergoyahkan, dan kehadiranmu yang selalu menjadi tempat perlindunganku. Aku bersyukur atas setiap momen yang telah kita bagi bersama, serta setiap tawa dan air mata yang kita lalui bersama-sama. Hari ini, ketika kita merayakan tahun baru dalam hidupmu, aku berjanji untuk selalu ada di sampingmu, mendukungmu dalam setiap impian yang ingin kamu raih, dan mencintaimu lebih dari yang bisa aku ungkapkan dengan kata-kata. Selamat ulang tahun, cintaku. Semoga tahun ini menjadi tahun yang penuh dengan kebahagiaan, kejutan menyenangkan, dan impian yang terwujud. Aku tak sabar untuk merayakan banyak lagi ulang tahun bersamamu. Dengan cinta yang tak terbatas, your future. I LOVE YOU❤️, always";
+   <script>
+   document.addEventListener("DOMContentLoaded", function() {
+  const pinForm = document.getElementById("pinForm");
+  const verifyBtn = document.getElementById("verifyBtn");
 
-      const textContainer = document.getElementById("letter");
-      const nextButton = document.getElementById("nextBtn");
+  pinForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      function animateText() {
-        const paragraphs = text.split(". ");
-        paragraphs.forEach((paragraph, index) => {
-          const delay = index * 3000;
-          setTimeout(() => {
-            const p = document.createElement("p");
-            p.textContent = paragraph + ".";
-            textContainer.appendChild(p);
+    const firstBox = document.getElementById("firstBox").value;
+    const secondBox = document.getElementById("secondBox").value;
+    const thirdBox = document.getElementById("thirdBox").value;
 
-            textContainer.scrollTop = textContainer.scrollHeight;
-
-            if (index === paragraphs.length - 1) {
-              nextButton.classList.add("show");
-            }
-          }, delay);
-        });
-      }
-
-      animateText();
-
-      nextButton.addEventListener("click", () => {
-        console.log("Menuju halaman selanjutnya...");
+    // Verifikasi PIN
+    if (firstBox === "30" && secondBox === "06" && thirdBox === "2023") {
+      alert("PIN yang dimasukkan benar! Lanjut ke halaman selanjutnya.");
+      // Menuju ke halaman selanjutnya
+      window.location.href = "https://randyh-25.github.io/19/Page2.html"; // Ganti URL dengan halaman yang diinginkan
+    } else {
+      alert("PIN salah! Harap coba lagi.");
+        }
       });
-
-      setTimeout(() => {
-        nextButton.style.display = "inline-block";
-        nextButton.style.opacity = "1";
-      }, text.split(". ").length * 2500);
-
-      // Membuat sparkle secara dinamis
-      const numSparkles = 50; // Jumlah sparkle yang diinginkan
-
-      for (let i = 0; i < numSparkles; i++) {
-        createSparkle();
-      }
-
-      function createSparkle() {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
-        sparkle.style.left = `${Math.random() * 100}vw`; // Atur posisi horizontal acak
-        sparkle.style.animationDuration = `${Math.random() * 3 + 1}s`; // Atur durasi animasi acak
-
-        document.body.appendChild(sparkle);
-      }
     });
   </script>
 </body>
