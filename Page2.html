@@ -120,11 +120,22 @@
             textContainer.scrollTop = textContainer.scrollHeight;
 
             if (index === paragraphs.length - 1) {
-              nextButton.classList.add("show");
+              showNextButton();
+              enableNextButton();
             }
           }, delay);
         });
       }
+
+      function showNextButton() {
+      nextButton.classList.add("show");
+      }
+
+    function enableNextButton() {
+    nextButton.addEventListener("click", () => {
+    window.location.href = "https://randyh-25.github.io/19/Page3.html";
+  });
+}
 
       animateText();
 
@@ -135,7 +146,7 @@
       setTimeout(() => {
         nextButton.style.display = "inline-block";
         nextButton.style.opacity = "1";
-      }, text.split(". ").length * 2500);
+      }, text.split(". ").length * 4501);
 
       // Membuat sparkle secara dinamis
       const numSparkles = 50; // Jumlah sparkle yang diinginkan
