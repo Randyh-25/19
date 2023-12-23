@@ -73,18 +73,37 @@
 <body>
   <div class="container">
     <p>Terakhir, apa sih doa dan keinginan ayang untuk tahun ke 19 ini?(Harus panjang)</p>
-  <form action="https://formspree.io/f/myyrglvz" method="POST">
-    <label for="message">Pesan:</label><br>
-    <textarea id="message" name="message" rows="4"></textarea><br><br>
-    <input type="submit" value="❤️Donn ayang!❤️" onclick="redirectToCustomPage()">
-  </form>
-</div>
-<script>
-   function redirectToCustomPage() {
-  alert("Clicked! Redirecting..."); // Pastikan fungsi terpanggil
-  window.location.href = 'https://randyh-25.github.io/19/Page4.html';
-  return false; // Mencegah perilaku default dari tombol submit
-}
+    <form id="myForm">
+      <label for="message">Pesan:</label><br>
+      <textarea id="message" name="message" rows="4"></textarea><br><br>
+      <input type="submit" value="❤️Donn ayang!❤️">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      fetch('https://formspree.io/f/myyrglvz', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = 'https://randyh-25.github.io/19/Page4.html';
+        } else {
+          throw new Error('Error in form submission');
+        }
+      })
+      .catch(error => {
+        console.error('Form submission error:', error);
+      });
+    });
   </script>
 </body>
+</html>
 </html>
