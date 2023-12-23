@@ -80,9 +80,11 @@
   </form>
 </div>
 <script>
-    function redirectToCustomPage() {
-      window.location.href = 'https://randyh-25.github.io/19/Page4.html';
-    }
+   function redirectToCustomPage() {
+  alert("Clicked! Redirecting..."); // Pastikan fungsi terpanggil
+  window.location.href = 'https://randyh-25.github.io/19/Page4.html';
+  return false; // Mencegah perilaku default dari tombol submit
+}
   </script>
 </body>
 </html>
