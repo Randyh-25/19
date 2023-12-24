@@ -6,8 +6,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Happy Birthday ayang!</title>
-  <audio preload="auto" autoplay loop>
-  <source src="https://raw.githubusercontent.com/Randyh-25/UntukPacar/main/Backsound/Nanti%20Kita%20Seperti%20Ini.mp3" type="audio/mp3">
+  <audio id="textSound" src="https://dl.dropbox.com/scl/fi/z6kqevztvtgp07ez52rci/Text-whoosh.mp3?rlkey=24d2rlemcf29q917o2x8ithl0&dl=0"></audio>
+  <audio id="clickSound" src="https://dl.dropbox.com/scl/fi/imx1zzpfkc7v74gcbc6eh/Bubble-click.mp3?rlkey=rsmae3pybft9jdricrl919r1h&dl=0"></audio>
+  <audio id="backSound" autoplay loop>
+  <source src="https://dl.dropbox.com/scl/fi/eezw2o2gwmbsr8a2jhs2i/videoplayback.m4a?rlkey=nvo0gt8bebak7jt82cixz4b06&dl=0" type="audio/mp4">
+  Your browser does not support the audio element.
   </audio>
   <style>
     body {
@@ -112,30 +115,34 @@
       const nextButton = document.getElementById("nextBtn");
 
       function animateText() {
-        const paragraphs = text.split(". ");
-        paragraphs.forEach((paragraph, index) => {
-          const delay = index * 4500;
-          setTimeout(() => {
-            const p = document.createElement("p");
-            p.textContent = paragraph + ".";
-            textContainer.appendChild(p);
+  const paragraphs = text.split(". ");
+  paragraphs.forEach((paragraph, index) => {
+    const delay = index * 4500;
+    setTimeout(() => {
+      const p = document.createElement("p");
+      p.textContent = paragraph + ".";
+      textContainer.appendChild(p);
+      textContainer.scrollTop = textContainer.scrollHeight;
 
-            textContainer.scrollTop = textContainer.scrollHeight;
+      // Play sound effect for text appearing
+      document.getElementById('textSound').play();
 
-            if (index === paragraphs.length - 1) {
-              showNextButton();
-              enableNextButton();
-            }
-          }, delay);
-        });
+      if (index === paragraphs.length - 1) {
+        showNextButton();
+        enableNextButton();
       }
+    }, delay);
+  });
+}
 
       function showNextButton() {
       nextButton.classList.add("show");
       }
 
     function enableNextButton() {
-    nextButton.addEventListener("click", () => {
+  nextButton.addEventListener("click", () => {
+    // Play sound effect for button click
+    document.getElementById('clickSound').play();
     window.location.href = "https://randyh-25.github.io/19/Page3.html";
   });
 }
