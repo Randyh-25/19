@@ -21,6 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     .container {
@@ -42,9 +43,41 @@
       font-weight: 400;
       font-size: 20px;
     }
-  .gbrlope{
-    img
-  }
+
+    /* CSS untuk kotak putih */
+    .social-box {
+      background-color: #fff; /* Warna latar belakang kotak putih */
+      padding: 0px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 0px; /* Atur margin atas sesuai kebutuhan */
+    }
+
+    /* CSS untuk shortcut sosial media */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; /* Bungkus ke baris baru jika terlalu banyak */
+      gap: 20px; /* Jarak antara ikon sosial media */
+      margin-top: 10px; /* Atur margin atas sesuai kebutuhan */
+    }
+
+    .social-link {
+      text-decoration: none;
+      font-family: 'Pixelify Sans', sans-serif;
+      font-size: 16px;
+      color: #333; /* Ubah warna sesuai kebutuhan */
+      display: flex;
+      align-items: center;
+    }
+
+    .social-link img {
+      width: 30px; /* Ubah ukuran ikon sesuai kebutuhan */
+      height: 30px;
+      margin-right: 5px; /* Atur margin jika diperlukan */
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +85,27 @@
     <p>Selamat ulang tahun, Ayang!</p>
     <p>Semoga hari ini penuh kebahagiaan dan berkah.</p>
     <p>Tetaplah menjadi pribadi yang luar biasa!</p>
-    <img src="https://raw.githubusercontent.com/Randyh-25/19/main/Picture/output-onlinegiftools.gif" alt="" width="300px" height=300px">
+    <img src="https://raw.githubusercontent.com/Randyh-25/19/main/Picture/output-onlinegiftools.gif" alt="" width="300px" height="300px">
+    
+    <!-- Kotak putih untuk shortcut sosial media -->
+    <div class="social-box">
+      <div class="social-links">
+        <!-- Shortcut Instagram -->
+        <a class="social-link" href="https://www.instagram.com/randy.25/">
+          <img src="https://scontent.cdninstagram.com/v/t51.2885-19/387269262_287653550885690_3437593924963300877_n.jpg?stp=dst-jpg_s80x80&_nc_cat=105&ccb=1-7&_nc_sid=c4dd86&_nc_ohc=A7JdaQnP9gMAX9e59bZ&_nc_ht=scontent.cdninstagram.com&oh=00_AfAeZZt4onYjtQZI0hM1s4AXzGGPKLoz-Wm8AymGEcMYkg&oe=658E05C9" alt="Instagram Logo"> <!-- Ganti URL gambar dengan logo Instagram yang sesuai -->
+          Chat pacar di di Instagram
+        </a>
+
+        <!-- Shortcut WhatsApp -->
+        <a class="social-link" href="https://wa.me/6283193346606">
+          <img src="https://cdn3.iconfinder.com/data/icons/pixel-social-media-2/16/Whatsapp-1024.png" alt="WhatsApp Logo"> <!-- Ganti URL gambar dengan logo WhatsApp yang sesuai -->
+          Chat pacar di WhatsApp
+        </a>
+
+
+        </a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
